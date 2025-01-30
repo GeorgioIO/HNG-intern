@@ -2,8 +2,30 @@ const time = document.querySelector('[data-testid="currentTimeUTC"]');
 const battery = document.querySelector(".battery");
 const batteryPercentageElement = document.querySelector(".percentage");
 const changeButton = document.querySelector(".changeBtn")
+const backSide = document.querySelector(".back")
+const frontSide = document.querySelector(".front");
+const card = document.querySelector(".card");
+const backButton = document.querySelector(".backBtn");
+
+backButton.addEventListener("click" , (event) => {
+    
+    frontSide.classList.remove("slideFrontRight");
+    frontSide.classList.add("slideFrontBack");
+    
+    setTimeout(() => {
+        frontSide.style.display = "flex";
+    }, 500)
+
+    backSide.classList.add("slideBackOut");
+    backSide.classList.remove("slideBackIn");
+    
+    setTimeout(() => {
+        backSide.style.display = "none"
+    }, 500)
+})
 
 changeButton.addEventListener("click" , (event) => {
+    document.querySelector(".front").classList.remove("slideFrontBack");
     document.querySelector(".front").classList.add("slideFrontRight");
 
     setTimeout(() => {
@@ -12,16 +34,15 @@ changeButton.addEventListener("click" , (event) => {
         document.querySelector(".back").appendChild(backHeader)
     }, 100);
 
+    
     setTimeout(() => {
-        document.querySelector(".front").style.display = "none";
-        document.querySelector(".back").style.display = "flex";
-        document.querySelector(".card").style.height = "auto"
+        frontSide.style.display = "none";
+        backSide.style.display = "flex";
     }, 700)
 
-    
+    backSide.classList.remove("slideBackOut")
+    backSide.classList.add("slideBackIn")
 
-
-    
 })
 
 

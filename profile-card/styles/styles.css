@@ -25,9 +25,63 @@
     }
 }
 
+@keyframes slideFrontBack
+{
+    0%
+    {
+        transform: translateX(400px);
+    }
+
+    100%
+    {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideBackOut
+{
+    0%
+    {
+        transform: translateX(0);
+    }
+
+    100%
+    {
+        transform: translateX(-400px);
+    }
+}
+
+@keyframes slideBackIn
+{
+    0%
+    {
+        transform: translateX(-400px);
+    }
+
+    100%
+    {
+        transform: translateX(0px);
+    }
+}
+
+.slideBackOut
+{
+    animation: slideBackOut 400ms ease-in-out forwards;
+}
+
+.slideBackIn
+{
+    animation: slideBackIn 400ms ease-in-out forwards;
+}
+
 .slideFrontRight
 {
-    animation: slideFrontRight 800ms ease-in-out forwards;
+    animation: slideFrontRight 400ms ease-in-out forwards;
+}
+
+.slideFrontBack
+{
+    animation: slideFrontBack 400ms ease-in-out forwards;
 }
 /* VARIABLES */
 :root
@@ -50,14 +104,14 @@ body
     align-items: center;
     justify-content: center;
     background-color: #F1F4FF;
-    
+    padding: 10px;
 }
 
 /* GENERAL STYLES */
 .card
 {
     width: 350px;
-    height: 400px;
+    height: 500px;
     border-radius: .85rem;
     position: relative;
     background-color: #FFFFFF;
@@ -115,6 +169,8 @@ body
     z-index: 1;
 }
 
+
+
 .header > .time
 {
     font-weight: 800;
@@ -126,6 +182,7 @@ body
     left: 50%;
     transform: translate(-50% , -50%);
 }
+
 
 .battery-information
 {
@@ -248,13 +305,6 @@ body
     transition: all ease-in-out 400ms;
 }
 
-li > a > svg > path,
-svg > path
-svg >
-{
-    
-}
-
 .changeBtn:hover
 {
     background-color: #ffffffdc;
@@ -275,6 +325,19 @@ svg >
     display: flex;
     align-items: flex-start;
     display: none;
+    transform: translateX(-400px);
+}
+
+.backBtn
+{
+    font-weight: 700;
+    font-family: var(--general-font);
+    font-size: 0.85rem;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    cursor: pointer;
+    z-index: 100;
 }
 
 .back > .body
@@ -328,7 +391,7 @@ svg >
     text-align: justify;
     font-family: var(--general-font);
     font-weight: 400;
-    line-height: 1.15rem;
+    line-height: 1.05rem;
 }
 
 .line
